@@ -49,10 +49,12 @@ try:
     with open(timing_filename, "a") as f:
         f.write(f"{duration:.6f}\n")
 
+    time.sleep(20)
+
 finally:
     powerjoular_process.terminate()
     powerjoular_process.wait()
-    time.sleep(20)
+  
 
 exit()
 
@@ -103,6 +105,7 @@ try:
     # Save timing result
     with open(timing_filename, "a") as f:
         f.write(f"{duration:.6f}\n")
+
     time.sleep(20)
 
 finally:
@@ -159,6 +162,7 @@ try:
     # Save timing result
     with open(timing_filename, "a") as f:
         f.write(f"{duration:.6f}\n")
+
     time.sleep(20)
 
 finally:
