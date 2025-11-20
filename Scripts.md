@@ -1,6 +1,6 @@
 # Energy and Time Measurement Scripts
 
-## This section includes the scripts used to measure the following data analytics for Python native code, NumPy, Pandas, and Polars libary
+## This section includes the scripts used to measure the following data analytics for NumPy, Pandas, and Polars libary
 
 ### NumPy Get Average
 
