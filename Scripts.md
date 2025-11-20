@@ -2,18 +2,6 @@
 
 ## This section includes the scripts used to measure the following data analytics for Python native code, NumPy, Pandas, and Polars libary
 
-The US 2015 Census data set is used for all data analytic tasks across all libraries for consistency. It is availble freely on keagle at (https://www.kaggle.com/datasets/muonneutrino/us-census-demographic-data) . It has a total of 74,002 rows and 37 columns with some missing data
-
-1.    Get the average population from the US 2015 Census data set using NumPy
-2.    Get the average population from the US 2015 Census data set using Pandas
-3.    Get the average population from the US 2015 Census data set using Polars
-
-Each script is wrapped around a process that runs Power Jourlar to measure the energy consumption.  Power Joular will only measure the energy of the PID attached to the script. Energy measurement data will be provided in a .csv file
-Each script is run 10 times to miminise the risk of extrenous data skewing the mean overall power consumption measurement.
-An appropriate amount of sleep will occur before the data analytic task begins to allow Power Joular to capture the energy consumption. The faster the execution of the data task, the longer the period of sleep needs to be.
-A timer will start before the data analytic task begings and ends when the process stops.  Time data wlll be outputted to a csv file.
-
-
 ### NumPy Get Average
 
 ```
