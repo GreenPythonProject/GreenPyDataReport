@@ -1,3 +1,7 @@
+### Iteration of Rust code to read CSV into memory
+
+# 1.    Use of native Rust code without the use of third party CSV reader libaries
+
 ```
 use pyo3::prelude::*;
 use std::fs::File;
@@ -55,6 +59,8 @@ where
     Ok(BufReader::new(file).lines())
 }
 ```
+#    2.    Use of the CSV Crate https://crates.io/crates/csv
+
 
 ```
 
@@ -100,6 +106,33 @@ pub fn readfile(filename: &str) -> PyResult<usize> {
     *FRAME.lock().unwrap() = rows;
 
     Ok(row_count)
+}
+
+```
+#    3.    Use of Rust Polars library to read CSV file into a data frame
+
+```
+
+use pyo3::prelude::*;
+use pyo3::wrap_pyfunction;
+use polars::prelude::*;
+use std::fs::File;
+use std::io::BufReader;
+
+
+#[pyfunction]
+pub fn readfile(path: &str) -> PyResult<String> {
+    // Open file
+    let file = File::open(path)
+        .map_err(|e| PyErr::new::<pyo3::exceptions::PyIOError, _>(e.to_string()))?;
+    let reader = BufReader::new(file);
+
+    // Read CSV into a DataFrame
+    let df = CsvReader::new(reader)
+        .finish()
+        .map_err(|e| PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string()))?;
+
+    Ok(format!("{:?}", df))
 }
 
 ```
