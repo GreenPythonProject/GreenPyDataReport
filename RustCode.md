@@ -1,4 +1,4 @@
-~~
+```
 use pyo3::prelude::*;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
@@ -54,4 +54,4 @@ where
     let file = File::open(filename)?;
     Ok(BufReader::new(file).lines())
 }
-~~
+```
